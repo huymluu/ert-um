@@ -35,9 +35,15 @@ export default class UserDetail extends React.Component {
 
   toggleEdit () {
     if (!this.state.isEditing) {
+      // Begin editing: Collect info from props
       this.setState({
         full_name: this.props.user.full_name,
         dob: this.getSimpleDate(this.props.user.dob)
+      })
+    } else {
+      // Cancel editing
+      this.setState({
+        error: ''
       })
     }
 
