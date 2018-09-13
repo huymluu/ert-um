@@ -28,10 +28,15 @@ export default class UsersView extends React.Component {
           users: users
         })
 
-        if (users.length > 0) {
-          that.onRowSelected(0)
-        } else {
+        if (users.length === 0) {
           that.onRowSelected(-1)
+        } else {
+          if (that.state.selectedRowIndex < 0 || that.state.selectedRowIndex > users.length - 1) {
+            console.log(that.state.selectedRowIndex)
+            that.onRowSelected(0)
+          } else {
+            that.onRowSelected(that.state.selectedRowIndex)
+          }
         }
       })
       .catch(function (error) {
