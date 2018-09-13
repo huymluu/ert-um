@@ -20,14 +20,12 @@ export default class Header extends React.Component {
     return (
       <div>
         {this.state.account &&
-        <div className="container">
-          <ul className="nav nav-pills">
-            <li className="navbar-left"><p className="navbar-text">
-              Hello, {this.state.account.username}</p>
-            </li>
-            <li className="navbar-right"><a href="/" onClick={Authenticator.logout}>Logout</a></li>
-          </ul>
-        </div>
+        <nav className="navbar navbar-dark bg-primary">
+          <div className="container">
+            <span className="navbar-brand">Hello, {this.state.account.username}</span>
+            <a className="btn btn-danger ml-auto" href="/" onClick={Authenticator.logout}>Logout</a>
+          </div>
+        </nav>
         }
       </div>
     )
