@@ -19,7 +19,8 @@ export default class AddUserView extends React.Component {
       password: '',
       full_name: '',
       dob: '',
-      error: ''
+      error: '',
+      message: ''
     }
   }
 
@@ -40,13 +41,19 @@ export default class AddUserView extends React.Component {
       return this.setState({error: 'Invalid date of birth. Should be YYYY-MM-DD'})
     }
 
+    this.clearMessage()
+
     let that = this
     axios.post(API_URL + '/user', {
       username: this.state.username,
+      password: this.state.password,
       full_name: this.state.full_name,
       dob: this.state.dob
     })
       .then(function (response) {
+        that.resetForm()
+        that.clearMessage()
+        that.setState({message: 'Success added new user!'})
       })
       .catch(function (error) {
         that.setState({error: error.response.status + ' - ' + error.response.data})
@@ -59,7 +66,13 @@ export default class AddUserView extends React.Component {
       password: '',
       full_name: '',
       dob: '',
-      error: ''
+    })
+  }
+
+  clearMessage () {
+    this.setState({
+      error: '',
+      message: ''
     })
   }
 
@@ -109,10 +122,17 @@ export default class AddUserView extends React.Component {
           <div className="alert alert-danger" role="alert">
             {this.state.error}
           </div>}
-
+          { this.state.message &&
+          <div className="alert alert-success" role="alert">
+            {this.state.message}
+          </div>}
           <div>
             <button className="btn btn-primary" onClick={() => this.addUser()}>Submit</button>
-            <button className="btn btn-link" onClick={() => this.resetForm()}>Clear</button>
+            <button className="btn btn-link" onClick={() => {
+              this.resetForm()
+              this.clearMessage()
+            }}>Clear
+            </button>
           </div>
         </div>
       </div>
