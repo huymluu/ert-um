@@ -10,15 +10,29 @@ export default class UsersView extends React.Component {
 
     this.state = {
       users: [],
-      selectedRowIndex: 0
+      selectedRowIndex: -1,
+      selectedUser: undefined
     }
   }
 
   componentDidMount () {
+    this.refreshData()
+  }
+
+  refreshData () {
     let that = this
     axios.get(API_URL + '/users')
       .then(function (response) {
-        that.setState({users: response.data})
+        let users = response.data
+        that.setState({
+          users: users
+        })
+
+        if (users.length > 0) {
+          that.onRowSelected(0)
+        } else {
+          that.onRowSelected(-1)
+        }
       })
       .catch(function (error) {
         console.error(error)
@@ -26,7 +40,10 @@ export default class UsersView extends React.Component {
   }
 
   onRowSelected (index) {
-    this.setState({selectedRowIndex: index})
+    this.setState({
+      selectedRowIndex: index,
+      selectedUser: index >= 0 ? this.state.users[index] : undefined
+    })
   }
 
   renderUsers () {
@@ -38,13 +55,6 @@ export default class UsersView extends React.Component {
                          onClick={() => this.onRowSelected(i)}/>)
     }
     return rows
-  }
-
-  renderUserDetail () {
-    let user = this.state.users[this.state.selectedRowIndex]
-    if (user) {
-      return <UserDetail user={user}/>
-    }
   }
 
   render () {
@@ -59,7 +69,7 @@ export default class UsersView extends React.Component {
             </ul>
           </div>
           <div className="col-md-9 card">
-            { this.renderUserDetail() }
+            <UserDetail user={this.state.selectedUser} onEditSuccess={() => this.refreshData()}/>
           </div>
         </div>
       </div>
