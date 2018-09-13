@@ -1,5 +1,6 @@
 import React from 'react'
 import Authenticator from './Authenticator'
+import { Link } from 'react-router-dom'
 
 export default class Header extends React.Component {
   constructor (props) {
@@ -23,7 +24,11 @@ export default class Header extends React.Component {
         <nav className="navbar navbar-dark bg-primary">
           <div className="container">
             <span className="navbar-brand">Hello, {this.state.account.username}</span>
-            <a className="btn btn-danger ml-auto" href="/" onClick={Authenticator.logout}>Logout</a>
+            <div className="ml-auto">
+              <Link className="btn btn-primary ml-auto" to="/">User list</Link>
+              <Link className="btn btn-primary ml-auto" to="/adduser">Add user</Link>
+              <a className="btn btn-danger ml-auto" href="/" onClick={Authenticator.logout}>Logout</a>
+            </div>
           </div>
         </nav>
         }
