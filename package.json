@@ -27,6 +27,7 @@
     "fs-extra": "^2.1.2",
     "html-webpack-plugin": "^2.28.0",
     "jsonwebtoken": "^7.4.0",
+    "lodash": "^4.17.11",
     "lowdb": "^0.16.0",
     "moment": "^2.18.1",
     "query-string": "^6.1.0",

@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Header'
+import UsersView from './UsersView'
 import Authenticator from '../Authenticator'
 
 export default class HomeView extends React.Component {
@@ -9,7 +10,7 @@ export default class HomeView extends React.Component {
       return (
         <div>
           <Header/>
-          Home page
+          <UsersView/>
         </div>
       )
     } else {
