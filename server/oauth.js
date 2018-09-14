@@ -16,7 +16,7 @@ router.get('/authorized', function (req, res) {
     let postBody = 'grant_type=authorization_code&code=' + req.query.code +
       '&client_id=' + config.client_id +
       '&client_secret=' + config.client_secret +
-      '&redirect_uri=' + config.redirect_uri
+      '&redirect_uri=' + encodeURIComponent(config.redirect_uri)
 
     request.post({
       headers: {'content-type': 'application/x-www-form-urlencoded'},
@@ -45,7 +45,7 @@ router.get('/login', function (req, res) {
 
   let url = config.authorize_url + '?response_type=code' +
     '&client_id=' + config.client_id +
-    '&redirect_uri=' + config.redirect_uri
+    '&redirect_uri=' + encodeURIComponent(config.redirect_uri)
 
   res.redirect(url)
 })

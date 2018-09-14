@@ -12,7 +12,7 @@ module.exports = {
       token_url: 'http://localhost:3000/oauth/token',
       client_id: 'abc123',
       client_secret: 'ssh-secret',
-      redirect_uri: 'http%3A%2F%2Flocalhost%3A8080%2Foauth%2Fauthorized',
+      redirect_uri: 'http://localhost:8080/oauth/authorized',
     }
   },
   web: {
