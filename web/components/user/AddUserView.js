@@ -91,6 +91,7 @@ export default class AddUserView extends React.Component {
             <input type="text" className="form-control col-md-9"
                    placeholder="Username"
                    name="username"
+                   maxLength="256"
                    value={this.state.username}
                    onChange={this.handleChange.bind(this)}/>
           </div>
@@ -99,6 +100,7 @@ export default class AddUserView extends React.Component {
             <input type="password" className="form-control col-md-9"
                    placeholder="Password"
                    name="password"
+                   maxLength="256"
                    value={this.state.password}
                    onChange={this.handleChange.bind(this)}/>
           </div>
@@ -107,6 +109,7 @@ export default class AddUserView extends React.Component {
             <input type="text" className="form-control col-md-9"
                    name="full_name"
                    placeholder="Full name"
+                   maxLength="200"
                    value={this.state.full_name}
                    onChange={this.handleChange.bind(this)}/>
           </div>

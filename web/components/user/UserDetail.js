@@ -79,6 +79,7 @@ export default class UserDetail extends React.Component {
               ? <input type="text" className="form-control col-md-9"
                        name="full_name"
                        value={this.state.full_name}
+                       maxLength="200"
                        onChange={this.handleChange.bind(this)}/>
               : this.props.user.full_name}
           </div>
