@@ -23,14 +23,19 @@ router.get('/authorized', function (req, res) {
       url: config.token_url,
       body: postBody
     }, function (error, response, body) {
-      console.log('error:', error)
-      console.log('statusCode:', response && response.statusCode)
-      console.log(body)
-      let payload = JSON.parse(body)
-      if (payload && payload.access_token) {
+      if (!response) return res.send('Error when exchange code for token. Empty response')
+      if (response.statusCode !== 200) return res.send('Error when exchange code for token. Status ' + response.statusCode)
+      if (!body) return res.send('Error when exchange code for token. Empty body')
+
+      try {
+        let payload = JSON.parse(body)
+        if (!payload || !payload.access_token) {
+          return res.send('Error when exchange code for token. Invalid body')
+        }
+
         res.redirect('/oauth/token?token=' + payload.access_token)
-      } else {
-        res.send('Error when exchange code for token')
+      } catch (e) {
+        return res.send(e)
       }
     })
   }
