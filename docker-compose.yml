@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  ertum:
+    container_name: ertum
+    image: node:alpine
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/ert-um
+    working_dir: /ert-um
+    command: npm start
+    network_mode: "host"

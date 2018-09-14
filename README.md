@@ -34,15 +34,20 @@ API url:             http://localhost:7000/api
 
 ## Usage
 
-### Start app
-```
-npm install
-npm build
-npm start
-```
-
 ### For development
 ```
 npm install
 npm run dev
+```
+
+### For production (run in host)
+
+```
+npm start
+```
+
+### For production (dockerize)
+
+```
+docker-compose up -d
 ```
