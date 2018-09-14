@@ -2,10 +2,26 @@
 
 ERT User Management App is a web application to manage (create/edit) user info in ERT system.
 
-Firstly, ERT Management App must be authorized by user via [ERT OAuth Server](https://github.com/huymluu/ert-auth).  
-Then, user can use ERT User Management App to manage data in ERT system.
+**Disclaimer:** This is a demo project, solely for personal research purpose. It has no connections to ERT or any entities.
+
+## System overview
+
+Contains 3 modules:
+
+- ERT User Management App (this module)
+- [ERT OAuth Server](https://github.com/huymluu/ert-auth)
+- [ERT Database](https://github.com/huymluu/ert-db) (MySQL)
+
+For demo, please run modules in this order:
+
+- [ERT Database](https://github.com/huymluu/ert-db)
+- [ERT OAuth Server](https://github.com/huymluu/ert-auth)
+- ERT User Management App (this module)
 
 ## As an OAuth client
+
+Firstly, ERT Management App must be authorized by user via [ERT OAuth Server](https://github.com/huymluu/ert-auth).  
+Then, user can use ERT User Management App to manage data in ERT system.
 
 ERT User Management App is an OAuth client with configuration:
 ```
@@ -90,3 +106,10 @@ npm start
 ```
 docker-compose up -d
 ```
+
+## Technologies used
+
+- Frontend: ReactJS
+- Backend: NodeJS, ExpressJS
+- Database: MySQL
+- Docker
