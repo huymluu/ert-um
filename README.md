@@ -48,6 +48,15 @@ This is web app homepage without logged in
 When clicked in `login via OAuth`, user will be redirected to OAuth server login form (`localhost:7000/login`)
 ![](docs/oauth-login.png)
 
+In module [ERT Database](https://github.com/huymluu/ert-db), if you executed script `create_test_data.sql`, there are some sample accounts for you (username/password):
+```
+alice/123
+bob/123
+charlie/123
+david/123
+frank/123
+```
+
 ### 3. OAuth Server authorize app
 
 After logged in, user will be asked to allow ERT User Management App to access to data.
