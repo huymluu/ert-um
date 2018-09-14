@@ -18,10 +18,6 @@ class Server {
         this.app.use(bodyParser.urlencoded({extended: true}));
 
         // Rest
-        // this.app.use('/rest/auth', require('./rest/auth'));
-        // this.app.use('/rest/accounts', require('./rest/accounts'));
-        // this.app.use('/rest/me', require('./rest/me'));
-        // this.app.use('/', require('./rest/common'));
         this.app.use('/oauth', require('./oauth'));
     }
 
