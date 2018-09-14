@@ -25,7 +25,7 @@ export default class Header extends React.Component {
           <div className="container">
             <span className="navbar-brand">Hello, {this.state.account.username}</span>
             <div className="ml-auto">
-              <Link className="btn btn-primary ml-auto" to="/">User list</Link>
+              <Link className="btn btn-primary ml-auto" to="/users">User list</Link>
               <Link className="btn btn-primary ml-auto" to="/adduser">Add user</Link>
               <a className="btn btn-danger ml-auto" href="/" onClick={Authenticator.logout}>Logout</a>
             </div>

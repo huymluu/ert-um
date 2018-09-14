@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Header from '../Header'
 import UserRow from './UserRow'
 import UserDetail from './UserDetail'
 
@@ -64,17 +65,20 @@ export default class UsersView extends React.Component {
 
   render () {
     return (
-      <div className="container" style={{marginTop: '40px'}}>
-        <div className="row">
-          <div className="col-md-3">
-            <ul className="list-group">
-              {
-                this.renderUsers()
-              }
-            </ul>
-          </div>
-          <div className="col-md-9 card">
-            <UserDetail user={this.state.selectedUser} onEditSuccess={() => this.refreshData()}/>
+      <div>
+        <Header/>
+        <div className="container" style={{marginTop: '40px'}}>
+          <div className="row">
+            <div className="col-md-3">
+              <ul className="list-group">
+                {
+                  this.renderUsers()
+                }
+              </ul>
+            </div>
+            <div className="col-md-9 card">
+              <UserDetail user={this.state.selectedUser} onEditSuccess={() => this.refreshData()}/>
+            </div>
           </div>
         </div>
       </div>

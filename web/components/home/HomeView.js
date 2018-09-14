@@ -1,16 +1,19 @@
 import React from 'react'
-import Header from '../Header'
-import UsersView from './UsersView'
 import Authenticator from '../Authenticator'
 
 export default class HomeView extends React.Component {
+
+  constructor (props) {
+    super(props)
+    if (Authenticator.isLoggedIn()) {
+      props.history.push('/users')
+    }
+  }
 
   render () {
     if (Authenticator.isLoggedIn()) {
       return (
         <div>
-          <Header/>
-          <UsersView/>
         </div>
       )
     } else {
