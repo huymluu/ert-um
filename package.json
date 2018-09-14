@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "export NODE_ENV=development && node index",
-    "build:web": "export NODE_ENV=production && rimraf web/dist && webpack -p --config web/webpack.prod.config.js --progress --profile --colors",
-    "prestart": "npm install",
+    "build": "export NODE_ENV=production && rimraf web/dist && webpack --config web/webpack.prod.config.js --progress --profile --colors",
     "start": "node index"
   },
   "dependencies": {
@@ -27,8 +26,6 @@
     "fs-extra": "^2.1.2",
     "html-webpack-plugin": "^2.28.0",
     "jsonwebtoken": "^7.4.0",
-    "lodash": "^4.17.11",
-    "lowdb": "^0.16.0",
     "moment": "^2.18.1",
     "query-string": "^6.1.0",
     "react": "^15.4.2",
