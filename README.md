@@ -14,9 +14,9 @@ Contains 3 modules:
 
 For demo, please run modules in this order:
 
-- [ERT Database](https://github.com/huymluu/ert-db)
-- [ERT OAuth Server](https://github.com/huymluu/ert-auth)
-- ERT User Management App (this module)
+- [ERT Database](https://github.com/huymluu/ert-db) (`localhost:6000`)
+- [ERT OAuth Server](https://github.com/huymluu/ert-auth) (`localhost:7000`)
+- ERT User Management App (`localhost:8000`)
 
 ## As an OAuth client
 
