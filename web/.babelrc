@@ -1,14 +1,6 @@
 {
   "presets": [
-    [
-      "latest",
-      {
-        "modules": false
-      }
-    ],
-    "react"
-  ],
-  "plugins": [
-    "transform-object-rest-spread"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ]
 }

@@ -13,12 +13,11 @@
     "start": "npm install && npm run web:build && npm run prod"
   },
   "dependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "axios": "^0.16.0",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-latest": "^6.24.0",
-    "babel-preset-react": "^6.23.0",
+    "babel-loader": "^8.0.2",
     "body-parser": "^1.17.1",
     "config": "^1.25.1",
     "css-loader": "^0.28.0",
