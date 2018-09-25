@@ -1,6 +1,6 @@
 'use strict'
 
-const request = require('request')
+const axios = require('axios')
 const router = require('express').Router()
 const config = require('config').server.oauth
 
@@ -18,26 +18,22 @@ router.get('/authorized', function (req, res) {
       '&client_secret=' + config.client_secret +
       '&redirect_uri=' + encodeURIComponent(config.redirect_uri)
 
-    request.post({
-      headers: {'content-type': 'application/x-www-form-urlencoded'},
-      url: config.token_url,
-      body: postBody
-    }, function (error, response, body) {
-      if (!response) return res.send('Error when exchange code for token. Empty response')
-      if (response.statusCode !== 200) return res.send('Error when exchange code for token. Status ' + response.statusCode)
-      if (!body) return res.send('Error when exchange code for token. Empty body')
+    axios.post(config.token_url, postBody)
+      .then(response => {
+        if (!response) throw new Error('Error when exchange code for token. Empty response')
+        if (response.status !== 200) throw new Error('Error when exchange code for token. Status ' + response.status)
+        if (!response.data) throw new Error('Error when exchange code for token. Empty body')
 
-      try {
-        let payload = JSON.parse(body)
+        let payload = response.data
         if (!payload || !payload.access_token) {
-          return res.send('Error when exchange code for token. Invalid body')
+          throw new Error('Error when exchange code for token. Invalid body')
         }
 
         res.redirect('/oauth/token?token=' + payload.access_token)
-      } catch (e) {
-        return res.send(e)
-      }
-    })
+      })
+      .catch(e => {
+        return res.send('Error when exchange code for token: ' + e.message)
+      })
   }
 })
 
