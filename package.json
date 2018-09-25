@@ -2,8 +2,8 @@
   "name": "ert-um",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "",
-  "author": "",
+  "repository": "https://github.com/huymluu/ert-um",
+  "author": "Huy Luu",
   "license": "MIT",
   "scripts": {
     "web:dev": "webpack-dev-server --config web/webpack.dev.config.js",
