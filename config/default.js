@@ -17,6 +17,6 @@ module.exports = {
   },
   web: {
     env: process.env.NODE_ENV || 'production',
-    apiUrl: process.env.SERVE_WEB === 'true' ? 'http://localhost:7000/api' : process.env.REMOTE_API_URL || 'http://localhost:7000/api'
+    apiUrl: process.env.REMOTE_API_URL || 'http://localhost:7000/api'
   }
 }

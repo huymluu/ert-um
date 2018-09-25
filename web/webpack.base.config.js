@@ -1,4 +1,5 @@
 const path = require('path')
+const config = require('config')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -35,7 +36,7 @@ module.exports = {
       inject: 'body'
     }),
     new webpack.DefinePlugin({
-      API_URL: JSON.stringify('http://localhost:7000/api')
+      API_URL: JSON.stringify(config.web.apiUrl)
     })
   ],
 }
